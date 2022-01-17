@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Entities
 {
-    public class BitcoinDetail
+    public class BitcoinDetail :BaseEntity, IEntity
     {
-        public int Id { get;set;}
         public decimal Price { get;set;}
         public DateTime Date { get;set;}
     }

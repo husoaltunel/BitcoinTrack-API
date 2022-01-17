@@ -1,9 +1,15 @@
 using AutoMapper;
 using Business.Abstract;
+using Business.Services.Auth;
 using Business.Services.BitcoinDetail;
 using Business.Services.BitcoinWebDetail;
+using Business.Utilities.Hashing;
+using Business.Utilities.Hashing.Abstract;
 using Business.Utilities.Mapping.AutoMapper;
+using Business.Utilities.Security.Abstract;
+using Business.Utilities.Security.Jwt;
 using DataAccess.Abstract;
+using DataAccess.Concrete.Dapper.Repositories;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -55,9 +61,12 @@ namespace API
             });
 
             IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
-
+            services.AddSingleton(mapper);            
+            services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IBitcoinDetailRepository, BitcoinDetailRepository>();
+            services.AddSingleton<ITokenHelper, JwtHelper>();
+            services.AddSingleton<IHashingHelper, HashingHelper>();
+            services.AddSingleton<IAuthService, AuthService>();
             services.AddSingleton<IBitcoinDetailService, BitcoinDetailService>();
             services.AddSingleton<IHostedService, BitcoinWebDetailService>();
         }

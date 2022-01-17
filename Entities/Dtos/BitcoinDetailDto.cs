@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Entities.Dtos
 {
-    public class BitcoinDetailDto
+    public class BitcoinDetailDto : BaseDto
     {
-        public int Id { get; set; }
         public decimal Price { get; set; }
         public DateTime Date { get; set; }
     }

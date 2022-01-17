@@ -14,9 +14,9 @@ namespace Business.Utilities.Mapping.AutoMapper
             // Add as many of these lines as you need to map your objects
             CreateMap<BitcoinDetail, BitcoinDetailDto>().ForMember(
                 dest => dest.Date,
-        opt => opt.MapFrom(src => src.Date.AddTicks(-(src.Date.Ticks % TimeSpan.TicksPerSecond)))
+                 opt => opt.MapFrom(src => src.Date.AddTicks(-(src.Date.Ticks % TimeSpan.TicksPerSecond)))
                 ).ReverseMap();
-
+            CreateMap<User, LoginInfoDto>();
         }
     }
 }
