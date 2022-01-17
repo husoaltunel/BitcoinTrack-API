@@ -28,6 +28,12 @@ namespace API.Controllers
         {
             return Ok(await _authService.Login(loginDto));
         }
+        [Authorize]
+        [HttpGet("is-logged-in")]
+        public IActionResult IsLoggedIn()
+        {
+            return Ok();
+        }
 
 
     }

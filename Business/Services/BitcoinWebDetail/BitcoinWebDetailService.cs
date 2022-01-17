@@ -44,7 +44,7 @@ namespace Business.Services.BitcoinWebDetail
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(html);
 
-            var bitcoinPriceSpan = document.DocumentNode.SelectNodes("/html/body/div[4]/div[4]/div[1]/div/div[1]/div[4]/div/div[1]/span[1]/span")[0].InnerText;
+            var bitcoinPriceSpan = document.DocumentNode.SelectNodes("/html/body/div[3]/div[4]/div[1]/div/div[1]/div[4]/div/div[1]/span[1]/span")[0].InnerText;
             string bitcoinPrice = bitcoinPriceSpan.Replace("$", "").Replace(",", "").Replace(".", "");
 
 
